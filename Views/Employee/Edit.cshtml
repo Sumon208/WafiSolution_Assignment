@@ -1,0 +1,47 @@
+﻿@model WafiSolution_Assignment.Models.Employee
+<h2>Edit Employee:</h2>
+
+<div class="row" style="display:flex;justify-content:center;border:1px solid black;margin-top:30px; ">
+    
+            <form asp-action="Edit" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label asp-for="FirstName" class="control-label"></label>
+        <input asp-for="FirstName" class="form-control" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LastName" class="control-label"></label>
+        <input asp-for="LastName" class="form-control" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email" class="control-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Mobile" class="control-label"></label>
+        <input asp-for="Mobile" class="form-control" />
+        <span asp-validation-for="Mobile" class="text-danger"></span>
+    </div>
+
+    <!-- Other input fields -->
+
+    <div class="form-group">
+        <label asp-for="PhotoFile"></label>
+        <input asp-for="PhotoFile" type="file" class="form-control" />
+        <span asp-validation-for="PhotoFile" class="text-danger"></span>
+
+            @if (Model.PhotoPath != null)
+            {
+                    <img src="@Model.PhotoPath" width="100" height="100" />
+            }
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+ </div>

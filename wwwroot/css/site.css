@@ -1,0 +1,89 @@
+html {
+    font-size: 14px;
+    border: 1px solid black;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.5rem; /* Adjust the gap between buttons */
+}
+
+
+
+
+.sidebar {
+   /* height: calc(100vh - 100px); */
+    height: 150px; /* Adjust the height, assuming the footer height is 60px */
+    width: 400px;
+  
+    
+    margin-top:1px;
+    
+   /*// background-color: #f8f9fa;*/
+   
+   border: 1px solid black;*/ /* Solid black border */
+}
+
+
+.content {
+    margin-left: 0px; 
+    padding: 20px;
+}
+
+.form-control-icon {
+    position: relative;
+}
+
+    .form-control-icon input {
+        padding-left: 2.5rem;
+    }
+
+    .form-control-icon i {
+        position: absolute;
+        left: 0.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #6c757d;
+    }
+
+
+.nav-table {
+    width: 100%;
+    border-collapse: collapse; 
+}
+
+    .nav-table td {
+        border: 1px solid black; 
+        padding: 10px; 
+    }
+
+.nav-link {
+    display: block;
+    text-decoration: none;
+    color: #000; /* Default link color */
+}
+
+    .nav-link.active {
+        font-weight: bold;
+        background-color: #e9ecef; /* Highlight color for active link */
+    }
