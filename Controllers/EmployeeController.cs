@@ -28,7 +28,6 @@ namespace WafiSolution_Assignment.Controllers
             ViewData["searchMobile"] = searchMobile;
             ViewData["searchDOB"] = searchDOB;
             ViewData["CurrentSort"] = sortOrder;
-
             //var employees = from e in _context.Employees select e;
             var employees = _context.Employees.AsQueryable();
 
@@ -54,34 +53,19 @@ namespace WafiSolution_Assignment.Controllers
             }
 
             // Sorting logic
-            switch (sortOrder)
+            employees = sortOrder switch
             {
-                case "name_desc":
-                    employees = employees.OrderByDescending(e => e.FirstName);
-                    break;
-                case "email":
-                    employees = employees.OrderBy(e => e.Email);
-                    break;
-                case "email_desc":
-                    employees = employees.OrderByDescending(e => e.Email);
-                    break;
-                case "dob":
-                    employees = employees.OrderBy(e => e.DateOfBirth);
-                    break;
-                case "dob_desc":
-                    employees = employees.OrderByDescending(e => e.DateOfBirth);
-                    break;
-                default:
-                    employees = employees.OrderBy(e => e.FirstName);
-                    break;
-            }
+                "name_desc" => employees.OrderByDescending(e => e.FirstName),
+                "email" => employees.OrderBy(e => e.Email),
+                "email_desc" => employees.OrderByDescending(e => e.Email),
+                "dob" => employees.OrderBy(e => e.DateOfBirth),
+                "dob_desc" => employees.OrderByDescending(e => e.DateOfBirth),
+                _ => employees.OrderBy(e => e.FirstName)
+            };
 
             int pageSize = 10;
             return View(await PagingModel<Employee>.CreateAsync(employees.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
-
-
-
 
         // GET: Create Employee
         public IActionResult Create()
